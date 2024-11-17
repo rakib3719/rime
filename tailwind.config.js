@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+poppins: '"Poppins", sans-serif',
+blinkers: '"Blinker", sans-serif'
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
