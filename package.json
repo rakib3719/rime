@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "leaflet": "^1.9.4",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
@@ -16,6 +17,7 @@
     "swiper": "^11.1.14"
   },
   "devDependencies": {
+    "daisyui": "^4.12.14",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",

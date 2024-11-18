@@ -1,6 +1,7 @@
 import Image from "next/image";
 import MobileMenu from "./MobileMenu";
 import logo from '@/asset/image/logo.jpeg'
+import Link from "next/link";
 
 
 const Navbar = () => {
@@ -16,12 +17,12 @@ const Navbar = () => {
        
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-12 text-gray-700 font-medium">
-            <a href="#" className="hover:text-[#6a2b93] text-2xl font-bold">Home</a>
-            <a href="#" className="hover:text-[#6a2b93] text-2xl font-bold">About Us</a>
+            <Link href="/" className="hover:text-[#6a2b93] text-2xl font-bold">Home</Link>
+            <Link href="/about" className="hover:text-[#6a2b93] text-2xl font-bold">About Us</Link>
             <a href="#" className="hover:text-[#6a2b93] text-2xl font-bold">Management Team</a>
             <a href="#" className="hover:text-[#6a2b93] text-2xl font-bold">Projects</a>
             <a href="#" className="hover:text-[#6a2b93] text-2xl font-bold">Blog</a>
-            <a href="#" className="hover:text-[#6a2b93] text-2xl font-bold">Contact Us</a>
+            <Link href="/contact" className="hover:text-[#6a2b93] text-2xl font-bold">Contact Us</Link>
           </div>
 
 

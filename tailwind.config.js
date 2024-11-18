@@ -17,5 +17,7 @@ blinkers: '"Blinker", sans-serif'
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
 };
