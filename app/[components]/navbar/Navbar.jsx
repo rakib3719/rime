@@ -21,7 +21,7 @@ const Navbar = () => {
             <Link href="/about" className="hover:text-[#6a2b93] text-2xl font-bold">About Us</Link>
             <a href="#" className="hover:text-[#6a2b93] text-2xl font-bold">Management Team</a>
             <a href="#" className="hover:text-[#6a2b93] text-2xl font-bold">Projects</a>
-            <a href="#" className="hover:text-[#6a2b93] text-2xl font-bold">Blog</a>
+            <Link href="/admin" className="hover:text-[#6a2b93] text-2xl font-bold">Admin</Link>
             <Link href="/contact" className="hover:text-[#6a2b93] text-2xl font-bold">Contact Us</Link>
           </div>
 

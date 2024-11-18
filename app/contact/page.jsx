@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import logo from '../../asset/image/logo.jpeg';
-import Map from '../[components]/aboutPage/contactPage/Map';
+
 
 const page = () => {
     return (
@@ -107,7 +107,7 @@ const page = () => {
             </section>
 
            <div className='mt-14'>
-           <Map/>
+   
            </div>
         </div>
     );
