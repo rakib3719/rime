@@ -1,17 +1,25 @@
 'use client';
-import { useQuery } from "@tanstack/react-query";
+
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdSystemUpdateAlt } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const ProjectTable = () => {
-  const { data, isLoading, isError } = useQuery({
+ 
+
+  // Fetch all projects
+  const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ['allProjects'],
     queryFn: async () => {
       const resp = await axios.get('/api/project');
       return resp.data;
     },
   });
+
+
+ 
 
   if (isLoading) {
     return (
@@ -39,6 +47,38 @@ const ProjectTable = () => {
 
   const projects = data.data;
 
+  const  deleteProject = async(id)=>{
+    const resp = await axios.delete(`/api/action/${id}`);
+console.log(resp, "dlete hoise kina check");
+if(resp.status === 200){
+  refetch()
+  Swal.fire("Deleted!", "The project has been deleted.", "success")
+ 
+}
+
+else{
+  Swal.fire("Error!", "Failed to delete the project.", "error");
+}
+
+  }
+
+  // Handle delete action
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteProject(id);
+      }
+    });
+  };
+
   return (
     <tbody>
       {projects?.map((project) => (
@@ -64,6 +104,7 @@ const ProjectTable = () => {
           <td className="py-4 px-6 text-sm text-gray-600 text-center">
             <div className="flex justify-center gap-4">
               <button
+                onClick={() => handleDelete(project._id)}
                 className="bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-lg shadow-md transition"
                 aria-label="Delete"
               >
