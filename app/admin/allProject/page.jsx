@@ -25,6 +25,9 @@ const page = () => {
                 Location
               </th>
               <th className="py-4 px-6 text-center text-sm font-semibold uppercase">
+             Show home
+              </th>
+              <th className="py-4 px-6 text-center text-sm font-semibold uppercase">
                 Action
               </th>
             </tr>

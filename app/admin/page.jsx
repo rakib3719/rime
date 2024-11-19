@@ -1,8 +1,28 @@
+'use client'
 import { FaBuilding, FaLayerGroup } from "react-icons/fa";
 import { MdOutlineApartment } from "react-icons/md";
 import { GiArchiveRegister } from "react-icons/gi";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const DashboardHome = () => {
+
+
+  const {data, isLoading} = useQuery({
+    queryKey: ['dashboardinfo'],
+    queryFn:async()=>{
+
+const data = await axios.get('/api/dash');
+return data?.data;
+
+    }
+
+  
+  })
+  if(isLoading){
+    return <p>Loding...</p>
+  }
+  console.log(data,'dataaa');
   return (
     <div className="mt-20 p-6">
       <h1 className="text-3xl font-bold text-gray-800 mb-8">Dashboard Overview</h1>
@@ -13,7 +33,7 @@ const DashboardHome = () => {
           <FaBuilding size={40} className="bg-white text-rose-500 p-2 rounded-full" />
           <div>
             <h3 className="text-lg font-semibold">Total Projects</h3>
-            <p className="text-2xl font-bold">128</p>
+           <p className="text-2xl font-bold">{data?.totalProjects}</p>
           </div>
         </div>
 
@@ -22,7 +42,7 @@ const DashboardHome = () => {
           <FaLayerGroup size={40} className="bg-white text-yellow-500 p-2 rounded-full" />
           <div>
             <h3 className="text-lg font-semibold">Total Levels</h3>
-            <p className="text-2xl font-bold">756</p>
+            <p className="text-2xl font-bold">{data?.totalLevels}</p>
           </div>
         </div>
 
@@ -31,7 +51,7 @@ const DashboardHome = () => {
           <MdOutlineApartment size={40} className="bg-white text-rose-500 p-2 rounded-full" />
           <div>
             <h3 className="text-lg font-semibold">Total Units</h3>
-            <p className="text-2xl font-bold">9820</p>
+            <p className="text-2xl font-bold">{data?.totalUnits}</p>
           </div>
         </div>
 
@@ -40,7 +60,8 @@ const DashboardHome = () => {
           <GiArchiveRegister size={40} className="bg-white text-yellow-500 p-2 rounded-full" />
           <div>
             <h3 className="text-lg font-semibold">Available Units</h3>
-            <p className="text-2xl font-bold">4562</p>
+            <p className="text-2xl font-bold">{data?.totalAvailableUnits
+            }</p>
           </div>
         </div>
       </div>
