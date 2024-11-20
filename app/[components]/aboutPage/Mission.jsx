@@ -5,7 +5,7 @@ const Mission = () => {
     return (
         <div className="bg-[#3f3227] py-12 mt-12 ">
             
-<div className="px-12 mt-10 md:flex items-center justify-between">
+<div className="md:px-12 px-4 mt-10 md:flex items-center justify-between">
 <div className="text-white lg:w-1/2">
 
 <div>
@@ -16,9 +16,9 @@ const Mission = () => {
 <h1 className="text-2xl font-bold ">VISION</h1>
 <p className="text-2xl">Our vision is to become the MOST TRUSTWORTHY LEADING REAL ESTATE company in our sector. We always operate with Re-eminence, Restructuring, Adherence, Virtuosity, and Alliance.</p>
 </div>
-<div className=" mt-12">
+<div className="px-4 mt-12">
 <h1 className="text-2xl font-bold ">CORE VALUES</h1>
-<p className="text-2xl ">
+<div className="text-2xl ">
 
 
     <ul className="space-y-4 list-disc">
@@ -31,11 +31,11 @@ const Mission = () => {
         <li>Sustainability</li>
         <li>Comfortability</li>
     </ul>
-</p>
+</div>
 </div>
 
 </div>
-<div className="lg:w-1/2 mt-8 w-full  lg:ml-36">
+<div className="lg:w-1/2 mt-8 w-full flex justify-center lg:ml-36">
 
     <Image src={missionImg} alt="mission"/>
 </div>

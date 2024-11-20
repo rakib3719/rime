@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { IoIosAdd } from "react-icons/io";
+import { FaBars, FaProjectDiagram, FaTimes } from "react-icons/fa";
 import { AiOutlineDashboard, AiOutlineUser } from "react-icons/ai";
 import { BiWallet, BiPieChartAlt2 } from "react-icons/bi";
 import { BsGear } from "react-icons/bs";
@@ -9,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { FaMessage } from "react-icons/fa6";
 
 export default function RootLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -25,29 +27,24 @@ export default function RootLayout({ children }) {
       icon: <AiOutlineDashboard />
     },
     {
-      path: 'admin/addProject',
+      path: '/admin/addProject',
       name: "Add Project",
       slug: 'addProject',
-      icon: <AiOutlineUser />
+      icon: <IoIosAdd />
     },
     {
-      path: 'admin/allProject',
+      path: '/admin/allProject',
       name: "All Projects",
       slug: 'allProject',
-      icon: <BiWallet />
+      icon: <FaProjectDiagram />
     },
     {
-      path: '/reports',
-      name: "Reports",
-      slug: 'reports',
-      icon: <BiPieChartAlt2 />
+      path: '/admin/message',
+      name: "Message",
+      slug: 'message',
+      icon: <FaMessage />
     },
-    {
-      path: '/settings',
-      name: "Settings",
-      slug: 'settings',
-      icon: <BsGear />
-    },
+  
   ];
 
 

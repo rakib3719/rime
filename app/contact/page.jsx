@@ -1,8 +1,15 @@
+'use client'
 import Image from 'next/image';
 import logo from '../../asset/image/logo.jpeg';
+import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
+import Form from '../[components]/others/contact/Form';
 
 
 const page = () => {
+
+
+  
     return (
         <div>
             {/* Hero Section */}
@@ -12,11 +19,12 @@ const page = () => {
                     backgroundImage: `url('/banner2.jpg')`,
                 }}
             >
+                <ToastContainer/>
                 <div className="hero-overlay bg-[#c3bebe] bg-opacity-80"></div>
                 <div className="hero-content text-neutral-content text-center">
                     <div>
                         <h1 className="mb-5 bg-gray-700 text-white p-4 text-5xl font-bold rounded">
-                            About Us
+                          Contact us
                         </h1>
                     </div>
                 </div>
@@ -52,57 +60,7 @@ const page = () => {
                     <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">
                         Contact Us
                     </h2>
-                    <form className="space-y-6">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Name
-                            </label>
-                            <input
-                                type="text"
-                                placeholder="Enter your name"
-                                className="input input-bordered w-full rounded-lg p-3 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6a2b93]"
-                            />
-                        </div>
-                        <div className="flex flex-col md:flex-row gap-4">
-                            <div className="flex-1">
-                                <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Phone
-                                </label>
-                                <input
-                                    type="tel"
-                                    placeholder="Enter your phone number"
-                                    className="input input-bordered w-full rounded-lg p-3 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6a2b93]"
-                                />
-                            </div>
-                            <div className="flex-1">
-                                <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Email
-                                </label>
-                                <input
-                                    type="email"
-                                    placeholder="Enter your email address"
-                                    className="input input-bordered w-full rounded-lg p-3 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6a2b93]"
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Message
-                            </label>
-                            <textarea
-                                placeholder="Write your message here..."
-                                className="input input-bordered w-full h-32 rounded-lg p-3 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#6a2b93] resize-none"
-                            ></textarea>
-                        </div>
-                        <div className="">
-                            <button
-                                type="submit"
-                                className="px-6 py-3 text-lg font-semibold border hover:text-white bg-transparent text-black border-black hover:bg-[#582779] focus:ring-4 focus:ring-[#6a2b93] transition-all"
-                            >
-                                Send
-                            </button>
-                        </div>
-                    </form>
+                  <Form/>
                 </div>
             </section>
 

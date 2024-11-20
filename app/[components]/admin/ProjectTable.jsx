@@ -75,11 +75,14 @@ const ProjectTable = () => {
   };
 
   const toggleTopStatus = async (id, currentStatus) => {
+
     const newStatus = !currentStatus;
     console.log(id, newStatus); // Log _id and new status
     setIsModalOpen(false); // Close the modal
     try {
-      const resp = await axios.patch(`/api/project/${id}`, { top: newStatus });
+      const resp = await axios.put(`/api/top/${id}`, { top: newStatus });
+
+      console.log(resp,'resp');
       if (resp.status === 200) {
         refetch();
         Swal.fire("Success!", `Project ${newStatus ? "added to" : "removed from"} home.`, "success");
@@ -178,16 +181,16 @@ const ProjectTable = () => {
                 Cancel
               </button>
               <button
-                // onClick={() =>
-                //   toggleTopStatus(selectedProject._id, selectedProject.top)
-                // }
+                onClick={() =>
+                  toggleTopStatus(selectedProject._id, selectedProject.top)
+                }
                 className={`px-4 py-2 ${
-                  !projects.top
+                  selectedProject.top
                     ? "bg-red-500 hover:bg-red-600"
                     : "bg-green-500 hover:bg-green-600"
                 } text-white rounded-lg`}
               >
-                {projects.top ? "Remove" : "Add"}
+                {selectedProject.top ? "Remove" : "Add"}
               </button>
             </div>
           </div>

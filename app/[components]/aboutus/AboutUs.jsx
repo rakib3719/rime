@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const AboutUs = ({header, title, aboutImg}) => {
     return (
-        <div className='lg:flex md:px-16 gap-16 mt-16 items-center'>
+        <div className='lg:flex max-w-[1400px] mx-auto md:px-16 gap-16 mt-16 items-center'>
             <div className='flex-1'>
                 <Image src={aboutImg} alt='about' className={`w-full ${title !== 'default' && 'h'}`}/>
             </div>
@@ -27,7 +27,7 @@ const AboutUs = ({header, title, aboutImg}) => {
 }
 
 {
-    title === 'default' && <Link href={'/about'}><button className='btn rounded font-blinkers text-white p-4 mt-6 text-xl font-bold uppercase bg-[#000000]'>Read More</button></Link>
+    title === 'default' && <Link href={'/about'}><button className=' rounded font-blinkers text-white px-4 py-2 hover:bg-gray-700 mt-6 text-xl font-bold uppercase bg-[#000000]'>Read More</button></Link>
 }
             </div>
         </div>

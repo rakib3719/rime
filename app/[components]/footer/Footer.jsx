@@ -1,18 +1,20 @@
 'use client';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaInstagram, FaPinterest } from 'react-icons/fa';
 
 const Footer = () => {
   const pathname = usePathname();
   
+  
   // If the current pathname contains '/admin', do not render the footer
-  if (pathname.includes('/admin')) {
+  if (pathname.includes('/admin' || '/login')) {
     return null;
   }
 
   return (
     <footer className="bg-gray-800 mt-12 text-gray-300 py-10">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="max-w-[1400px] mx-auto  grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Address Section */}
         <div>
           <h3 className="text-lg font-bold mb-3">Address</h3>
@@ -32,14 +34,14 @@ const Footer = () => {
           <h3 className="text-lg font-bold mb-3">Navigation</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="hover:text-white">
-                » Career
-              </a>
+              <Link href="/" className="hover:text-white">
+                » Home
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-white">
-                » Sitemap
-              </a>
+              <Link href="/about" className="hover:text-white">
+                » About
+              </Link>
             </li>
             <li>
               <a href="#" className="hover:text-white">
@@ -48,7 +50,7 @@ const Footer = () => {
             </li>
             <li>
               <a href="#" className="hover:text-white">
-                » Blog
+                » Our Project
               </a>
             </li>
             <li>
@@ -103,9 +105,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-center text-gray-500 text-sm mt-8 border-t border-gray-700 pt-5">
-        © 2024 GLG ASSETS LTD. All Rights Reserved.
+        © 2024 RIME LTD. All Rights Reserved.
         <br />
-        Developed by <span className="text-white font-bold">DUSRA Soft</span>
+        Developed by <span className="text-white font-bold">Cholo Bohodhur Soft</span>
       </div>
     </footer>
   );
