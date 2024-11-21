@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-import logo from '../../asset/image/logo.jpeg';
+import logo from '../../asset/image/logo-removebg-preview.png';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import Form from '../[components]/others/contact/Form';

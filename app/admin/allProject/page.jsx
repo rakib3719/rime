@@ -31,7 +31,10 @@ const page = () => {
             </tr>
           </thead>
           {/* Table Body - Rendered by ProjectTable */}
+        
           <ProjectTable />
+         
+       
         </table>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { FaBars, FaHome, FaProjectDiagram, FaTimes, FaUser, FaUserAlt } from "re
 import { AiOutlineDashboard, AiOutlineUser } from "react-icons/ai";
 import { BiWallet, BiPieChartAlt2 } from "react-icons/bi";
 import { BsGear } from "react-icons/bs";
-import logo from '../../asset/image/logo.jpeg';
+import logo from '../../asset/image/logo-removebg-preview.png';
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

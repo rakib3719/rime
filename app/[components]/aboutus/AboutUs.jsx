@@ -15,10 +15,10 @@ const AboutUs = ({header, title, aboutImg}) => {
 
 {
     title === 'default'? <p className='mt-12 text-2xl text-gray-800 font-blinkers' >
-    GLG Assets Ltd. is a fast-growing real estate company established in Bangladesh in 2016. We are a member of REHAB and also an enlisted real estate company of RAJUK. 
+    Rime Asset Ltd. is a fast-growing real estate company established in Bangladesh in 2016. We are a member of REHAB and also an enlisted real estate company of RAJUK. 
     <br /><br />
     
-    Although GLG Assets Ltd. is a new company in the real estate sector by its name, it has a mature team to build your dream home. We consider every single associate of GLG Assets Ltd.
+    Although Rime Asset Ltd. is a new company in the real estate sector by its name, it has a mature team to build your dream home. We consider every single associate of Rime Asset Ltd.
     
     <br /><br />
     

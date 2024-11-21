@@ -18,7 +18,7 @@ const ProjectTable = () => {
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ['allProjects'],
     queryFn: async () => {
-      const resp = await axios.get('/api/project');
+      const resp = await axios.get('/api/project?paginate=false');
       return resp.data;
     },
   });
@@ -35,11 +35,13 @@ const ProjectTable = () => {
 
   if (isError || !data) {
     return (
-      <tr>
+      <tbody>
+        <tr>
         <td colSpan="6" className="py-6 text-center text-red-500 text-lg">
           Failed to load data.
         </td>
       </tr>
+      </tbody>
     );
   }
 

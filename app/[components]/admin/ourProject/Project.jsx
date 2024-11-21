@@ -43,7 +43,7 @@ const Project = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["allProjectsHome"],
     queryFn: async () => {
-      const resp = await axios.get("/api/project");
+      const resp = await axios.get("/api/project?paginate=false");
       return resp?.data;
     },
   });
