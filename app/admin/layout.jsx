@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import { IoIosAdd } from "react-icons/io";
-import { FaBars, FaHome, FaProjectDiagram, FaTimes, FaUser, FaUserAlt } from "react-icons/fa";
+import { FaBars, FaHome, FaProjectDiagram, FaSignOutAlt, FaTimes, FaUser, FaUserAlt } from "react-icons/fa";
 import { AiOutlineDashboard, AiOutlineUser } from "react-icons/ai";
 import { BiWallet, BiPieChartAlt2 } from "react-icons/bi";
 import { BsGear } from "react-icons/bs";
@@ -11,6 +11,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { FaMessage } from "react-icons/fa6";
+import { signOut } from "next-auth/react";
+
 
 export default function RootLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -46,6 +48,12 @@ export default function RootLayout({ children }) {
     },
   
   ];
+  // Initialize router
+  const logOUtHandle = async () => {
+    await signOut(
+   
+    );
+   }
 
 
 
@@ -92,13 +100,17 @@ export default function RootLayout({ children }) {
           <nav className="mt-4">
             <ul>
               {Links.map((link) => (
-                <li key={link.slug} className={`flex  items-center px-4 py-2 ${path === link.slug && 'bg-yellow-500'}`}>
+                <li key={link.slug} className={`flex  items-center px-4 py-2 hover:text-yellow-500 ${path === link.slug && 'bg-yellow-500'}`}>
                   <Link href={link.path} className="flex items-center w-full">
                     {link.icon && <span className="mr-3">{link.icon}</span>}
                     {link.name}
                   </Link>
                 </li>
               ))}
+
+              <button onClick={logOUtHandle} className="flex gap-2 px-4 items-center hover:text-red-800">
+               <FaSignOutAlt/>  <span className="">Log Out</span>
+              </button>
             </ul>
           </nav>
         </div>
