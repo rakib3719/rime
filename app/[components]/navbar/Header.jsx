@@ -1,6 +1,8 @@
+'use client'
 import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 const Header = () => {
+    
     return (
         <div>
             <div className="flex justify-between items-center p-4 bg-[#2e4271] text-sm">

@@ -14,7 +14,7 @@ const page = () => {
         <div>
             {/* Hero Section */}
             <div
-                className="hero mt-20 min-h-60"
+                className="hero m min-h-60"
                 style={{
                     backgroundImage: `url('/banner2.jpg')`,
                 }}

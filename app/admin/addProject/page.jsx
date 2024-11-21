@@ -52,7 +52,12 @@ console.log(images, 'images');
       const uploadedUrls = await Promise.all(uploadPromises);
       imagesUrl.push(...uploadedUrls); 
 
+  
+
       const form = e.target;
+      const frontImage = form.frontImage.files[0] 
+      const front_image_url = await imageUpload(frontImage);
+ 
       const data = {
 
 projectName: form.projectName.value,
@@ -69,7 +74,9 @@ totalUnits: form.totalUnits.value,
 carParking: form.carParking.value,
 images: imagesUrl,
 communityHall: form.communityHall.value,
+frontImage :front_image_url,
 top: false,
+
 
 
 
@@ -83,6 +90,7 @@ top: false,
 
     if(resp?.status === 200){
       toast.success('Projects added sucessfully')
+      form.reset()
       setLoader(false)
     }
 
@@ -267,7 +275,17 @@ top: false,
         </div>
 
      
-       
+        <div className="flex flex-col">
+          <label htmlFor="images" className="text-lg font-medium text-gray-700">Upload Front Images</label>
+          <input
+            id="images"
+            name="frontImage"
+            type="file"
+            accept="image/*"
+  placeholder='upload single image'
+            className="border border-gray-300 rounded-lg p-4 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          />
+        </div>
 
         {/* Image Upload */}
         <div className="flex flex-col">
@@ -282,13 +300,14 @@ top: false,
             className="border border-gray-300 rounded-lg p-4 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
           />
         </div>
+   
 
         {/* Submit Button */}
         <div className="text-center">
           <button
           disabled={loader}
             type="submit"
-            className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="px-6 py-3 bg-[#1E2A47] text-white font-medium rounded-lg hover:bg-[#2d4374] focus:outline-none focus:ring-2 focus:ring-blue-600"
           >
            {
             !loader ? ' Submit Project' : 'Loading....'

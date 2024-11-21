@@ -4,6 +4,7 @@ import { MdOutlineApartment } from "react-icons/md";
 import { GiArchiveRegister } from "react-icons/gi";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import SectionLoader from "../[components]/others/loader/SectionLoader";
 
 const DashboardHome = () => {
 
@@ -20,7 +21,9 @@ return data?.data;
   
   })
   if(isLoading){
-    return <p>Loding...</p>
+    return  <div className="py-28 text-center">
+    <SectionLoader />
+  </div>
   }
   console.log(data,'dataaa');
   return (

@@ -1,5 +1,6 @@
 "use client"; 
 
+import Link from "next/link";
 import { useState } from "react";
 
 const MobileMenu = () => {
@@ -50,25 +51,12 @@ const MobileMenu = () => {
             </svg>
           </button>
         </div>
-        <ul className="mt-8 space-y-4 pl-6 text-gray-300">
-          <li>
-            <a href="#" className="hover:text-rose-500">Home</a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-rose-500">About Us</a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-rose-500">Management Team</a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-rose-500">Projects</a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-rose-500">Blog</a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-rose-500">Contact Us</a>
-          </li>
+        <ul className="mt-8  space-y-4 pl-6  text-gray-300">
+        <Link href="/" className="hover:text-[#324e8f] transition-all duration-300 block ease-in-out transform hover:scale-105">Home</Link>
+            <Link href="/about" className="hover:text-[#1E2A47] transition-all block duration-300 ease-in-out transform hover:scale-105">About Us</Link>
+            <Link href="/project" className="hover:text-[#1E2A47] transition-all block  duration-300 ease-in-out transform hover:scale-105">Our Projects</Link>
+            <Link href="/contact" className="hover:text-[#1E2A47] transition-all block duration-300 ease-in-out transform hover:scale-105">Contact Us</Link>
+            <Link href="#why" className="hover:text-[#365399] transition-all block duration-300 ease-in-out transform hover:scale-105">Why Choose Us?</Link>
         </ul>
       </div>
     </>

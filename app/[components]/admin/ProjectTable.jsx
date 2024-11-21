@@ -6,12 +6,13 @@ import axios from "axios";
 import Link from "next/link";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdSystemUpdateAlt } from "react-icons/md";
-import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 import Swal from "sweetalert2";
+import SectionLoader from "../others/loader/SectionLoader"; // Make sure you have a loader component like this
 
 const ProjectTable = () => {
   const [selectedProject, setSelectedProject] = useState(null); // Track selected project for modal
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility
+  const [loader, setLoader] = useState(false) // Loader state for deleting
 
   // Fetch all projects
   const { data, isLoading, isError, refetch } = useQuery({
@@ -24,25 +25,21 @@ const ProjectTable = () => {
 
   if (isLoading) {
     return (
-      <tbody>
-        <tr>
-          <td colSpan="7" className="py-6 text-center text-gray-500 text-lg">
-            Loading...
-          </td>
-        </tr>
-      </tbody>
+      <tr>
+        <td colSpan="6" className="py-28 text-center text-gray-500 text-lg">
+          <SectionLoader /> {/* Your custom loader component */}
+        </td>
+      </tr>
     );
   }
 
   if (isError || !data) {
     return (
-      <tbody>
-        <tr>
-          <td colSpan="7" className="py-6 text-center text-red-500 text-lg">
-            Failed to load data.
-          </td>
-        </tr>
-      </tbody>
+      <tr>
+        <td colSpan="6" className="py-6 text-center text-red-500 text-lg">
+          Failed to load data.
+        </td>
+      </tr>
     );
   }
 
@@ -52,8 +49,10 @@ const ProjectTable = () => {
     const resp = await axios.delete(`/api/action/${id}`);
     if (resp.status === 200) {
       refetch();
+      setLoader(false);
       Swal.fire("Deleted!", "The project has been deleted.", "success");
     } else {
+      setLoader(false);
       Swal.fire("Error!", "Failed to delete the project.", "error");
     }
   };
@@ -69,25 +68,25 @@ const ProjectTable = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        setLoader(true);
         deleteProject(id);
       }
     });
   };
 
   const toggleTopStatus = async (id, currentStatus) => {
-
+    setLoader(true);
     const newStatus = !currentStatus;
-    console.log(id, newStatus); // Log _id and new status
     setIsModalOpen(false); // Close the modal
     try {
       const resp = await axios.put(`/api/top/${id}`, { top: newStatus });
-
-      console.log(resp,'resp');
       if (resp.status === 200) {
         refetch();
+        setLoader(false);
         Swal.fire("Success!", `Project ${newStatus ? "added to" : "removed from"} home.`, "success");
       }
     } catch (error) {
+      setLoader(false);
       Swal.fire("Error!", "Failed to update project.", "error");
     }
   };
@@ -114,27 +113,6 @@ const ProjectTable = () => {
             </td>
             <td className="py-4 px-6 text-sm text-gray-600">
               {project?.location}
-            </td>
-            <td className="py-4 px-6 text-center">
-              {!project?.top ? (
-                <AiFillCheckCircle
-                  size={24}
-                  className="text-green-500 cursor-pointer"
-                  onClick={() => {
-                    setSelectedProject(project);
-                    setIsModalOpen(true);
-                  }}
-                />
-              ) : (
-                <AiFillCloseCircle
-                  size={24}
-                  className="text-red-500 cursor-pointer"
-                  onClick={() => {
-                    setSelectedProject(project);
-                    setIsModalOpen(true);
-                  }}
-                />
-              )}
             </td>
             <td className="py-4 px-6 text-center">
               <div className="flex justify-center gap-4">
@@ -164,14 +142,11 @@ const ProjectTable = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-96">
             <h3 className="text-lg font-semibold text-gray-800">
-              {selectedProject.top
-                ? "Remove from Home"
-                : "Add to Home Page"}
+              {selectedProject.top ? "Remove from Home" : "Add to Home Page"}
             </h3>
             <p className="mt-4 text-gray-600">
               Are you sure you want to{" "}
-              {selectedProject.top ? "remove" : "add"} this project from the home
-              page?
+              {selectedProject.top ? "remove" : "add"} this project from the home page?
             </p>
             <div className="mt-6 flex justify-end gap-4">
               <button

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import { IoIosAdd } from "react-icons/io";
-import { FaBars, FaProjectDiagram, FaTimes } from "react-icons/fa";
+import { FaBars, FaHome, FaProjectDiagram, FaTimes, FaUser, FaUserAlt } from "react-icons/fa";
 import { AiOutlineDashboard, AiOutlineUser } from "react-icons/ai";
 import { BiWallet, BiPieChartAlt2 } from "react-icons/bi";
 import { BsGear } from "react-icons/bs";
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       path: '/admin',
       name: "Home",
       slug: 'null',
-      icon: <AiOutlineDashboard />
+      icon: <FaHome />
     },
     {
       path: '/admin/addProject',
@@ -53,28 +53,32 @@ export default function RootLayout({ children }) {
   <>
         {/* Top Navbar */}
         <div className="fixed top-0 left-0 w-full h-16 bg-white shadow-md flex items-center justify-between px-4 z-50">
-          <h1 className="text-2xl font-bold text-blue-500">
-            <Link href={'/'}><Image src={logo} alt={'logo'} className="w-16 h-16 " /></Link>
-          </h1>
-          <div className="flex items-center space-x-4">
-            <input
-              type="text"
-              placeholder="Search your key..."
-              className="hidden md:block border border-gray-300 rounded-md px-3 py-1"
-            />
-            <div className="relative">
-              <button className="bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center">
-                <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">20</span>
-              </button>
-            </div>
-            <button
-              className="md:hidden text-xl"
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-            >
-              {sidebarOpen ? <FaTimes /> : <FaBars />}
-            </button>
-          </div>
+      <h1 className="text-2xl font-bold text-blue-500">
+        <Link href={'/'}>
+          <Image src={logo} alt={'logo'} className="w-16 h-16" />
+        </Link>
+      </h1>
+      <div className="flex items-center space-x-6">
+        {/* Fancy Quote */}
+        <p className="italic ml-4 md:ml-0 font-serif text-gray-600 text-sm">
+ {         "Opportunities don't happen. You create them."}
+        </p>
+
+        {/* Admin Section with User Icon */}
+        <div className="flex items-center space-x-2">
+          <FaUserAlt className="text-xl text-gray-600" />
+          <h1 className="text-lg font-bold text-gray-800">Admin</h1>
         </div>
+
+        {/* Hamburger Menu Button */}
+        <button
+          className="md:hidden text-xl"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+        >
+          {sidebarOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+    </div>
 
         {/* Sidebar */}
         <div

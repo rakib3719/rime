@@ -1,5 +1,6 @@
 "use client";
 
+import SectionLoader from "@/app/[components]/others/loader/SectionLoader";
 import { imageUpload } from "@/app/utilites/photoUpload";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -22,7 +23,9 @@ queryFn: async ()=>{
 
   })
 if(isLoading){
-  return <p>Loading...</p>
+  return <div className="flex justify-center mt-56 items-center">
+    <SectionLoader/>
+  </div>
 }
   console.log(data,'ddddd');
   const {
@@ -77,6 +80,9 @@ const handleSubmit = async (e) => {
     }
 
     const form = e.target;
+    const frontImage = form.frontImage.files[0] 
+    const front_image_url = await imageUpload(frontImage);
+    console.log(front_image_url, "okkk mamamagiye jaw");
     const data = {
       projectName: form.projectName.value,
       location: form.location.value,
@@ -92,7 +98,9 @@ const handleSubmit = async (e) => {
       carParking: form.carParking.value,
       images: imagesUrl, // Send combined image URLs
       communityHall: form.communityHall.checked,
-      top: top, // Adjusted for checkbox
+      frontImage :front_image_url,
+      top: top,
+       // Adjusted for checkbox
     };
 
     const resp = await axios.put(`/api/action/${_id}`, data);
@@ -309,6 +317,17 @@ console.log(id, 'finally id i sgget');
             accept="image/*"
             multiple
             onChange={handleImageUpload}
+            className="border border-gray-300 rounded-lg p-4 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          />
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="images" className="text-lg font-medium text-gray-700">Upload front image</label>
+          <input
+            id="image"
+            name="frontImage"
+            type="file"
+            accept="image/*"
+        
             className="border border-gray-300 rounded-lg p-4 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
           />
         </div>

@@ -7,7 +7,7 @@ import { MdOutlineSecurity } from "react-icons/md";
 
 const More = () => {
     return (
-        <div className="px-12  py-8 mt-16 bg-gray-100">
+        <div className="px-12 why py-8 mt-16 bg-gray-100" id="why" >
              <section className='mt-24 max-w-[1400px] mx-auto'>
             <div className="flex  justify-center flex-col-reverse lg:flex-row-reverse gap-24  mt-8 about-bg">
 
@@ -28,7 +28,7 @@ const More = () => {
 
 <p  className="font-semibold font-workSense">
 
-Citizens of distant epochs. Jean-François Champollion explorations? Brain is the seed of intelligence from which we spring paroxysm of global death dream of the mind's eye rogue. Science laws of physics consciousness. Dispassionate extraterrestrial observer hundreds of thousands kindling the energy hidden in matter. Take root and flourish gathered by…</p>
+Citizens of distant epochs. Jean-François Champollion explorations? Brain is the seed of intelligence from which we spring paroxysm of global death dream of the {"mind's"} eye rogue. Science laws of physics consciousness. Dispassionate extraterrestrial observer hundreds of thousands kindling the energy hidden in matter. Take root and flourish gathered by…</p>
 <br />
 
 <section className="mt-12 space-y-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4">

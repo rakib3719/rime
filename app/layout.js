@@ -3,7 +3,8 @@ import "./globals.css";
 import SocialLInks from "./[components]/others/SocialLInks";
 import Navbar from "./[components]/navbar/Navbar";
 import Footer from "./[components]/footer/Footer";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
