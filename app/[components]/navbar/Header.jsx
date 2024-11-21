@@ -1,7 +1,7 @@
 'use client'
 import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
-const yHeader = () => {
+const Header = () => {
     
     return (
         <div>

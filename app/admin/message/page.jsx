@@ -13,7 +13,7 @@ const Messagepage = () => {
       const response = await axios.get(`/api/contact?page=${currentPage}`);
       return response.data;
     },
-    keepPreviousData: true, // Keep previous page data while loading new page
+    keepPreviousData: true, 
   });
 
   if (isLoading) {
@@ -34,7 +34,7 @@ const Messagepage = () => {
     <div className="container mx-auto px-6 py-12">
       <h1 className="text-3xl font-semibold text-center mb-8 text-[#6a2b93]">Messages</h1>
 
-      {/* Messages List */}
+     
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {messages.map((message) => (
           <div

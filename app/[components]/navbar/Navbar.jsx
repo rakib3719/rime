@@ -3,8 +3,9 @@ import Image from "next/image";
 import MobileMenu from "./MobileMenu";
 import logo from '@/asset/image/logo.jpeg';
 import Link from "next/link";
-import Header from "./Header";
+
 import { usePathname } from "next/navigation";
+import Header from "./Header";
 
 
 const Navbar = () => {
