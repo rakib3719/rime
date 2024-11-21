@@ -44,7 +44,7 @@ const Project = () => {
     queryKey: ["allProjectsHome"],
     queryFn: async () => {
       const resp = await axios.get("/api/project");
-      return resp.data;
+      return resp?.data;
     },
   });
 
@@ -87,21 +87,22 @@ const Project = () => {
 
                 {/* Status and Area */}
                 <p className="bg-[#1E2A47B3] text-white p-2 status absolute top-0 left-0">
-             {data?.category}
+                  {data?.category}
                 </p>
                 <p className="bg-[#1E2A47B3] text-white p-2 status2 absolute top-0 right-0">
-                {data?.status}
+                  {data?.status}
                 </p>
               </div>
 
               {/* Location and Price */}
               <div className="flex justify-between p-2 font-workSense bg-black text-white">
                 <p className="flex items-center gap-2">
-                  <IoLocationOutline className="text-yellow-500" /> 
-             {data?.location}
+                  <IoLocationOutline className="text-yellow-500" />
+                  {data?.location}
                 </p>
                 <p className="flex items-center gap-2">
-                  <FaCircleDollarToSlot className="text-yellow-500" /> $350,000
+                  <FaCircleDollarToSlot className="text-yellow-500" />
+                  $350,000
                 </p>
               </div>
 
@@ -128,6 +129,16 @@ const Project = () => {
           </div>
         ))}
       </Slider>
+
+      {/* View All Button */}
+      <div className="text-center mt-8">
+        <Link
+          href="/project"
+          className="btn bg-[#1E2A47] text-white hover:bg-black px-6 py-3 rounded-lg shadow-md"
+        >
+          View All Projects
+        </Link>
+      </div>
     </div>
   );
 };

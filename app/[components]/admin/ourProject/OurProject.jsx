@@ -11,7 +11,7 @@ const OurProject = () => {
         <QueryClientProvider client={queryClient}>
   <div>
                 <div className="max-w-[1400px] mt-28 pb-20 mx-auto">
-            <h1 className="text-center font-bold text-2xl">Our Project</h1>
+            <h1 className="text-center font-bold text-5xl">Our Project</h1>
         </div>
 
        <Project/>

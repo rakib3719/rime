@@ -9,7 +9,7 @@ const page = () => {
     const queryClient = new QueryClient()
     return (
       <div className="">
-<h1 className="text-center py-8 font-bold">Our All Projects</h1>
+<h1 className="text-center py-8 text-5xl font-bold">Our All Projects</h1>
         <QueryClientProvider client={queryClient}>
         <Card/>
         </QueryClientProvider>

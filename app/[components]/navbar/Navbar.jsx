@@ -5,7 +5,7 @@ import logo from '@/asset/image/logo.jpeg';
 import Link from "next/link";
 import Header from "./Header";
 import { usePathname } from "next/navigation";
-import SocialLInks from "../others/SocialLInks";
+
 
 const Navbar = () => {
   const pathname = usePathname();

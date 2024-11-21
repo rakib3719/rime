@@ -19,12 +19,13 @@ const Card = () => {
     queryKey: ["allProject", page],
     queryFn: async () => {
       const response = await axios.get(`/api/project?page=${page}&limit=${limit}`);
-      return response.data;
+      return response;
     },
-    keepPreviousData: true, 
+    keepPreviousData: true,
+    
   });
 
-  const projects = data?.data;
+  const projects = data?.data?.data;
 
   if (isLoading) {
     return (

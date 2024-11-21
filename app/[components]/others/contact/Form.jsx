@@ -1,11 +1,12 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 const Form = () => {
+    const [loader, setLoader] = useState(false)
     const contactHandle = async(e)=>{
         e.preventDefault()
-
+setLoader(true)
         const name = e.target.name.value;
         const tel= e.target.tel.value;
         const email= e.target.email.value;
@@ -19,9 +20,14 @@ const Form = () => {
           
         }
         const resp = await axios.post( `/api/contact`, data)
-        console.log(resp?.data);
+  
         if(resp?.data?.status){
             toast.success('Message sent successfully')
+            setLoader(false)
+        }
+        else{
+            toast.error('something went wrong please try again!')
+            setLoader(false)
         }
     }
     return (
