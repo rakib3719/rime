@@ -13,7 +13,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gray-800 mt-12 text-gray-300 py-10">
+    <footer className="bg-gray-800 mt-12 max-w-[1400px] mx-auto px-6  text-gray-300 py-10">
       <div className="max-w-[1400px] mx-auto  grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Address Section */}
         <div>

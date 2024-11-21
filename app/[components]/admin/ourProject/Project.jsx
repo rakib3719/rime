@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import SectionLoader from "../../others/loader/SectionLoader";
@@ -10,6 +11,7 @@ import { FaCircleDollarToSlot } from "react-icons/fa6";
 import axios from "axios";
 import Image from "next/image";
 
+// Slider settings with responsive breakpoints
 const sliderSettings = {
   dots: true,
   infinite: true,
@@ -23,7 +25,7 @@ const sliderSettings = {
     {
       breakpoint: 1024, 
       settings: {
-        slidesToShow: 2, 
+        slidesToShow: 2,
         slidesToScroll: 2,
         infinite: true,
         dots: true,
@@ -67,15 +69,14 @@ const Project = () => {
   }
 
   return (
-    <div className="max-w-[96%] md:max-w-[92%] mx-auto py-8 relative">
-      {/* Slider with default arrows */}
+    <div className="slider-wrapper max-w-[96%] mx-auto py-8 relative">
       <Slider {...sliderSettings}>
         {projects.map((data) => (
           <div key={data?._id} className="px-2">
             <div className="card">
               <div className="relative">
                 {/* Image */}
-                <figure className="h-[300px] w-full">
+                <figure className="h-[300px] w-full relative">
                   <Image
                     src={data?.frontImage}
                     alt="property image"
@@ -134,7 +135,7 @@ const Project = () => {
       <div className="text-center mt-8">
         <Link
           href="/project"
-          className="btn bg-[#1E2A47] text-white hover:bg-black px-6 py-3 rounded-lg shadow-md"
+          className="btn bg-[#1E2A47] text-white hover:bg-black px-6 py-3 mt-12 rounded-lg shadow-md"
         >
           View All Projects
         </Link>

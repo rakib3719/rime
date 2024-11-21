@@ -7,6 +7,32 @@
 
 
 
-
+.slider-wrapper {
+    width: 100%;
+    max-width: 96%;
+    margin: auto;
+    overflow: hidden; /* Prevents overflow issues */
+  }
+  
+  .slick-slider {
+    overflow: hidden; /* Ensures no extra width issues */
+  }
+  
+  .slick-list {
+    overflow: hidden; /* Hides extra slides */
+  }
+  
+  .card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #ffffff;
+  }
+  
+  .card-body {
+    padding: 16px;
+  }
+  
+  
+  
 
 
