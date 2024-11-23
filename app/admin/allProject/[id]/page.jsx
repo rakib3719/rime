@@ -44,8 +44,11 @@ if(isLoading){
     carParking,
     images,
     communityHall,
-    top
+    top,
+    
          } = data?.data?.data;
+
+    const     frontImage2 = data?.data?.data
   // const [project, setProject] = useState(null); 
   // const [loader, setLoader] = useState(false); 
 
@@ -62,27 +65,29 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   setLoader(true);
 
-  console.log(imageFile, 'Images to upload'); // Debugging
-
-  // Combine existing and newly uploaded image URLs
   let imagesUrl = [...images]; // Start with existing images
+  let front_image_url = frontImage2; // Default to existing front image
 
   try {
-    // Upload new files if any
+    // Check if new images are uploaded
     if (imageFile.length > 0) {
       const uploadPromises = imageFile.map(async (image) => {
-        const imgUrl = await imageUpload(image); 
+        const imgUrl = await imageUpload(image);
         return imgUrl;
       });
 
       const uploadedUrls = await Promise.all(uploadPromises);
-      imagesUrl = [...imagesUrl, ...uploadedUrls];
+      imagesUrl = [...imagesUrl, ...uploadedUrls]; // Combine existing and new images
     }
 
+    // Check if a new front image is uploaded
     const form = e.target;
-    const frontImage = form.frontImage.files[0] 
-    const front_image_url = await imageUpload(frontImage);
-    console.log(front_image_url, "okkk mamamagiye jaw");
+    const frontImage = form.frontImage.files[0]; // Check for uploaded file
+    if (frontImage) {
+      front_image_url = await imageUpload(frontImage); // Upload the new front image
+    }
+
+    // Prepare the data object
     const data = {
       projectName: form.projectName.value,
       location: form.location.value,
@@ -96,13 +101,13 @@ const handleSubmit = async (e) => {
       availableUnits: form.availableUnits.value,
       totalUnits: form.totalUnits.value,
       carParking: form.carParking.value,
-      images: imagesUrl, // Send combined image URLs
+      images: imagesUrl, // Use updated image URLs
       communityHall: form.communityHall.checked,
-      frontImage :front_image_url,
+      frontImage: front_image_url, // Use updated front image
       top: top,
-       // Adjusted for checkbox
     };
 
+    // Send updated data to the server
     const resp = await axios.put(`/api/action/${_id}`, data);
 
     if (resp?.data?.result?.modifiedCount) {
@@ -117,6 +122,7 @@ const handleSubmit = async (e) => {
     setLoader(false);
   }
 };
+
 
 
 
@@ -337,10 +343,10 @@ console.log(id, 'finally id i sgget');
           <button
           disabled={loader}
             type="submit"
-            className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="px-6 py-3 bg-[#374a75] text-white font-medium rounded-lg hover:bg-[#212b42] focus:outline-none focus:ring-2 focus:ring-blue-600"
           >
            {
-            !loader ? ' Submit Project' : 'Loading....'
+            !loader ? 'Update Project' : 'Loading....'
            }
           </button>
         </div>

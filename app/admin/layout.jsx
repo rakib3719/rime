@@ -100,7 +100,7 @@ export default function RootLayout({ children }) {
           <nav className="mt-4">
             <ul>
               {Links.map((link) => (
-                <li key={link.slug} className={`flex  items-center px-4 py-2 hover:text-yellow-500 ${path === link.slug && 'bg-yellow-500'}`}>
+                <li key={link.slug} className={`${path === link.slug ? 'bg-yellow-500 items-center  flex px-4 py-2 text-white hover:text-[#1E2A47]' : 'flex  items-center px-4 py-2 hover:text-yellow-500  '}`}>
                   <Link href={link.path} className="flex items-center w-full">
                     {link.icon && <span className="mr-3">{link.icon}</span>}
                     {link.name}

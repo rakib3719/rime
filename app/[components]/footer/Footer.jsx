@@ -13,19 +13,20 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gray-800 mt-12 max-w-[1400px] mx-auto px-6  text-gray-300 py-10">
+    <div className='bg-gray-800'>
+ <footer className=" mt-12 max-w-[1500px] mx-auto px-6  text-gray-300 py-10">
       <div className="max-w-[1400px] mx-auto  grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Address Section */}
         <div>
           <h3 className="text-lg font-bold mb-3">Address</h3>
-          <p>House # 12 (Ground & 1st Floor)</p>
-          <p>Road # 16/A, Gulshan-01</p>
-          <p>Dhaka-1212</p>
+          <p>Address - house 07, </p>
+          <p>road 14/c, sector - 4, </p>
+          <p>Uttara, dhaka -1230</p>
           <p>
-            <strong>Email:</strong> info@glgassets.com
+            <strong>Email:</strong> realestate.rime@gmail.com
           </p>
           <p>
-            <strong>Phone:</strong> 16772
+            <strong>Phone:</strong>  01610733899
           </p>
         </div>
 
@@ -110,6 +111,8 @@ const Footer = () => {
         Developed by <span className="text-white font-bold">Cholo Bohodhur Soft</span>
       </div>
     </footer>
+    </div>
+   
   );
 };
 

@@ -17,7 +17,7 @@ const More = () => {
 <div  className="about-left flex-1">
 
 <p className="text-[#264ba1] font-workSense">Our Best Qualities</p>
-<h1  className="font-playFair font-bold text-3xl pt-6"> Why Choose Property </h1>
+<h1  className="font-playFair font-bold text-3xl pt-6"> Why Choose Rime? </h1>
 
 
 <div  className="flex mt-4 mb-4" >
@@ -27,8 +27,11 @@ const More = () => {
 </div>
 
 <p  className="font-semibold font-workSense">
+At Rime, a trusted real estate company based in Bangladesh, we believe in transforming dreams into reality. With years of expertise in the industry, we specialize in providing premium properties that cater to diverse needs—whether {"it's"} a luxurious home, a smart investment, or commercial spaces to grow your business.
 
-Citizens of distant epochs. Jean-François Champollion explorations? Brain is the seed of intelligence from which we spring paroxysm of global death dream of the {"mind's"} eye rogue. Science laws of physics consciousness. Dispassionate extraterrestrial observer hundreds of thousands kindling the energy hidden in matter. Take root and flourish gathered by…</p>
+Our team is committed to delivering excellence by offering transparent deals, competitive pricing, and personalized support. We understand that a property {"isn't"} just an asset; it’s a foundation for your future. At Rime, we ensure every client experiences reliability, innovation, and a seamless journey toward owning their ideal property.
+
+Choose Rime and build your future with confidence!</p>
 <br />
 
 <section className="mt-12 space-y-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4">

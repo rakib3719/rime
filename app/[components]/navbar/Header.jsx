@@ -11,13 +11,13 @@ const Header = () => {
                     <div className="text-white flex items-center gap-2">
                         <FaEnvelope className="text-yellow-300" />
                         <a href="mailto:sd.rakib36@gmail.com" className="text-white hover:text-yellow-300 transition-colors duration-300">
-                            sd.rakib36@gmail.com
+                        realestate.rime@gmail.com
                         </a>
                     </div>
                     <div className="text-white mt-1 md:mt-0 flex items-center gap-2">
                         <FaPhoneAlt className="text-yellow-300" />
                         <a href="tel:+1234567890" className="text-white hover:text-yellow-300 transition-colors duration-300">
-                            01608-538567
+                        01610733899
                         </a>
                     </div>
                 </div>

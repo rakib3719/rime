@@ -32,11 +32,11 @@ const Navbar = () => {
       <Header />
       {/* Navbar */}
       <nav className="sticky top-0 left-0 w-full bg-white shadow-lg z-50">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center h-20">
+        <div className="max-w-[1500px] mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center h-20">
 
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
-            <Image src={logo} alt="Logo" className="w-16 h-16 rounded-lg" />
+            <Image src={logo} alt="Logo" className="w-28 h-28 rounded-lg" />
           </div>
 
           {/* Desktop Menu */}
@@ -46,7 +46,7 @@ const Navbar = () => {
                 key={item.path}
                 href={item.path}
                 className={`hover:text-[#1E2A47] transition-all duration-300 ease-in-out transform hover:scale-105 ${
-                  pathname === item.path ? "text-[#2a4fa4]" : ""
+                  pathname === item.path ? "text-[#233153]" : ""
                 }`}
               >
                 {item.pathname}

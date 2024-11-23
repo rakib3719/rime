@@ -5,25 +5,47 @@ import { useQuery } from "@tanstack/react-query";
 import SectionLoader from "../../others/loader/SectionLoader";
 import Slider from "react-slick";
 import Link from "next/link";
-import { FaBuilding } from "react-icons/fa";
+import { FaBuilding, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaCircleDollarToSlot } from "react-icons/fa6";
 import axios from "axios";
 import Image from "next/image";
 
+// Custom Next Arrow
+const NextArrow = ({ onClick }) => (
+  <button
+    className="absolute top-1/2 right-2 transform -translate-y-1/2 z-10 bg-black text-white rounded-full p-2 hover:bg-[#1E2A47]"
+    onClick={onClick}
+  >
+    <FaChevronRight size={20} />
+  </button>
+);
+
+// Custom Prev Arrow
+const PrevArrow = ({ onClick }) => (
+  <button
+    className="absolute top-1/2 left-2 transform -translate-y-1/2 z-10 bg-black text-white rounded-full p-2 hover:bg-[#1E2A47]"
+    onClick={onClick}
+  >
+    <FaChevronLeft size={20} />
+  </button>
+);
+
 // Slider settings with responsive breakpoints
 const sliderSettings = {
-  dots: true,
-  infinite: true,
+
+   infinite: true, 
   autoplay: true,
-  speed: 4000,
-  autoplaySpeed: 3000,
-  cssEase: "linear",
-  slidesToShow: 3,
-  slidesToScroll: 3,
+   speed: 2000, 
+   autoplaySpeed: 4000, 
+   cssEase: "linear", 
+   slidesToShow: 3,
+    slidesToScroll: 1,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
   responsive: [
     {
-      breakpoint: 1024, 
+      breakpoint: 1024,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -32,7 +54,7 @@ const sliderSettings = {
       },
     },
     {
-      breakpoint: 600, 
+      breakpoint: 600,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,

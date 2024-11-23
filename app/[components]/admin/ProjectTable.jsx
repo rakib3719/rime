@@ -25,11 +25,13 @@ const ProjectTable = () => {
 
   if (isLoading) {
     return (
-      <tr>
+     <tbody>
+       <tr>
         <td colSpan="6" className="py-28 text-center text-gray-500 text-lg">
           <SectionLoader /> {/* Your custom loader component */}
         </td>
       </tr>
+     </tbody>
     );
   }
 
